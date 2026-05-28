@@ -51,6 +51,7 @@ export class AddCustomerComponent  {
     //this.router.navigate(['/customers']);
 } 
 closeDialog(){
+  //Se modifica
   this.dialogRef.close();
 }
 }
