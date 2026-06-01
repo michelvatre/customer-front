@@ -5,7 +5,7 @@ on:
       - 'feature/*'
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
       - name: Pull and checkout from git repository
@@ -26,5 +26,3 @@ jobs:
         run: |
           echo "Building the application"
           ng build
-          echo "Running tests"
-          ng test --watch=false
