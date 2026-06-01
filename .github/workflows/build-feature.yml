@@ -1,0 +1,30 @@
+name: buid and test feature branch
+on:
+  push:
+    branches:
+      - 'feature/*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Pull and checkout from git repository
+        run: |
+          echo "Pulling and checking out from git repository"
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '18'
+      - name: Setup Node 18 , and install dependencies
+        run: |
+          echo "Install npm packages"
+          npm install
+      - name: Install Angula 15.2.6
+        run: |
+          echo "Installing Angular CLI globally"
+          npm install -g @angular/cli@15.2.6
+      - name: Build and test the application
+        run: |
+          echo "Building the application"
+          ng build --configuration=production
+          echo "Running tests"
+          ng test --watch=false --browsers=ChromeHeadless
